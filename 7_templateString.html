@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+		table{width:600px; border-collapse:collapse; text-align:center}
+		th{border-bottom:2px solid black}
+		td{border-bottom:1px solid #555}
+	</style>
+ </head>
+ <body>
+	<table>
+		<thead>
+			<tr>
+				<th>序号</th>
+				<th>商品名称</th>
+				<th>数量</th>
+				<th>单价</th>
+				<th>小计</th>
+			</tr>
+		</thead>
+		<tbody id="tbody">
+		</tbody>
+	</table>
+	<script>
+		var data=[
+			{iid:1,pname:"iphone8",count:2,price:7788},
+			{iid:2,pname:"iphone8plus",count:4,price:8988},
+			{iid:3,pname:"iphoneX",count:3,price:9988}
+		];	
+		var html='';
+//		for(var i=0;i<data.length;i++){
+//			var p=data[i];
+		for(var p of data){
+			html+=`<tr>
+				<td>${p.iid}</td>
+				<td>${p.pname}</td>
+				<td>${p.count}</td>
+				<td>¥${p.price.toFixed(2)}</td>
+				<td>¥${(p.price*p.count).toFixed(2)}</td>
+			</tr>`;
+		}
+		tbody.innerHTML=html;
+	</script>	
+ </body>
+</html>
